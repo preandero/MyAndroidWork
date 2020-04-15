@@ -109,13 +109,13 @@ public class Main2Activity extends AppCompatActivity {
                         if (Operator.equals("+")) {
                             result += Double.parseDouble(token1);
                         }
-                        if (Operator.equals("-")) {
+                        else if (Operator.equals("-")) {
                             result -= Double.parseDouble(token1);
                         }
-                        if (Operator.equals("*")) {
+                        else if (Operator.equals("*")) {
                             result *= Double.parseDouble(token1);
                         }
-                        if (Operator.equals("/")) {
+                        else if (Operator.equals("/")) {
                             result /= Double.parseDouble(token1);
                         }
                     }
@@ -123,13 +123,13 @@ public class Main2Activity extends AppCompatActivity {
                         if (Operator.equals("+")) {
                             result = Value + Double.parseDouble(token1);
                         }
-                        if (Operator.equals("-")) {
+                        else if (Operator.equals("-")) {
                             result = Value - Double.parseDouble(token1);
                         }
-                        if (Operator.equals("*")) {
+                        else if (Operator.equals("*")) {
                             result = Value * Double.parseDouble(token1);
                         }
-                        if (Operator.equals("/")) {
+                        else if (Operator.equals("/")) {
                             result = Value / Double.parseDouble(token1);
                         }
                     }
