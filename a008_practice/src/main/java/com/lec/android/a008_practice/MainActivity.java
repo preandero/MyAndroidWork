@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
         etAddress = findViewById(R.id.etAddress);
 
 
-        etName.set
+
     }
 }
