@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 insertData(v);
+                cardName.setText("");
+                cardAge.setText("");
+                cardAddress.setText("");
             }
         });
 
