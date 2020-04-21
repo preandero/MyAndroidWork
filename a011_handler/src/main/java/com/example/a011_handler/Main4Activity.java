@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ public class Main4Activity extends AppCompatActivity {
 
     int value1 = 0, value2 = 0, value3 = 0, value4 = 0, value5 = 0;
     TextView tvResult1, tvResult2, tvResult3, tvResult4, tvResult5;
-    Handler mHandler2, mHandler4;
+    Handler mHandler2, mHandler3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,42 @@ public class Main4Activity extends AppCompatActivity {
                 }
             }
         }, 0);
+
+        // 방법3:  메소드 내부에서 생성
+        mHandler3 = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                value3++;
+                tvResult3.setText("Value3 = " + value3);
+
+                if(value3 < 5){
+                    mHandler3.sendEmptyMessageDelayed(0, 1000);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Value3 종료", Toast.LENGTH_LONG).show();
+                }
+            }
+        };
+        mHandler3.sendEmptyMessage(0);  // 시작!
+
+        // 방법 #4
+        // 핸들러를 사용하지 않고도 일정시간마다 (혹은 후에) 코스를 수행할수 있도록
+        // CountDownTimer 클래스가 제공된다.
+        // '총시간'  과 '인터벌(간격)' 을 주면 매 간격마다 onTick 메소드를 수행한다.
+        new CountDownTimer(15 * 1000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) { // 매 간격마다 수행하는 코드
+                value4++;
+                tvResult4.setText("Value4 = " + value4);
+            }
+
+            @Override
+            public void onFinish() {  // 종료시 수행하는 코드
+                Toast.makeText(getApplicationContext(), "Value4 종료", Toast.LENGTH_LONG).show();
+            }
+        }.start();   // 타이머 시작
+
+
     } // end onCreate
 
 
