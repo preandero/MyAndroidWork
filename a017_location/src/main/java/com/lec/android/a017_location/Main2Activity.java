@@ -166,7 +166,6 @@ public class Main2Activity extends AppCompatActivity {
 
         return "위치정보 : " + provider + "\n위도 : " + latitude + "\n경도 : " + longitude
                 + "\n고도 : " + altitude + "\n정확도 : " + accuracy;
-
     }
 
     @Override
